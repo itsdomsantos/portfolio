@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #05010f;
+  color: #ededed;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Scrollbar estilizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0518;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#a855f7, #6366f1);
+  border-radius: 999px;
+}
+
+/* Texto com gradiente */
+.text-gradient {
+  background: linear-gradient(120deg, #d946ef, #8b5cf6, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Cartão glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Campos de formulário */
+.input {
+  width: 100%;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.7rem 0.9rem;
+  font-size: 0.95rem;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+.input:focus {
+  border-color: rgba(217, 70, 239, 0.6);
+  box-shadow: 0 0 0 3px rgba(217, 70, 239, 0.15);
+}
+
+/* Blobs animados do fundo */
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(40px, -60px) scale(1.1);
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.95);
+  }
+}
+.animate-blob {
+  animation: blob 18s ease-in-out infinite;
+}
+.animation-delay-2000 {
+  animation-delay: -6s;
+}
+.animation-delay-4000 {
+  animation-delay: -12s;
+}
