@@ -8,9 +8,9 @@ export default function About() {
         {/* Avatar / cartão visual */}
         <Reveal className="flex justify-center">
           <div className="relative">
-            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-tr from-fuchsia-500/40 to-indigo-500/40 blur-2xl" />
+            <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-tr from-red-700/40 to-rose-950/40 blur-2xl" />
             <div className="glass relative flex h-64 w-64 items-center justify-center rounded-[2rem] sm:h-72 sm:w-72">
-              <span className="bg-gradient-to-tr from-fuchsia-400 to-indigo-400 bg-clip-text text-8xl font-black text-transparent">
+              <span className="bg-gradient-to-tr from-red-400 to-rose-600 bg-clip-text text-8xl font-black text-transparent">
                 {site.nome
                   .split(" ")
                   .map((p) => p[0])
@@ -24,11 +24,11 @@ export default function About() {
         {/* Texto */}
         <div>
           <Reveal>
-            <span className="text-sm font-semibold uppercase tracking-widest text-fuchsia-400">
-              Sobre mim
+            <span className="text-sm font-semibold uppercase tracking-widest text-red-500">
+              About me
             </span>
             <h2 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-              Um pouco da minha história
+              A bit about my story
             </h2>
           </Reveal>
 
@@ -42,7 +42,7 @@ export default function About() {
             <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
               {sobre.destaques.map((d) => (
                 <div key={d.label} className="glass rounded-2xl p-4 text-center">
-                  <div className="bg-gradient-to-r from-fuchsia-400 to-indigo-400 bg-clip-text text-3xl font-extrabold text-transparent">
+                  <div className="bg-gradient-to-r from-red-400 to-rose-600 bg-clip-text text-3xl font-extrabold text-transparent">
                     {d.valor}
                   </div>
                   <div className="mt-1 text-xs text-white/60">{d.label}</div>

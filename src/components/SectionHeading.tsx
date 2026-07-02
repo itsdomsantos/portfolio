@@ -12,7 +12,7 @@ export default function SectionHeading({
 }) {
   return (
     <Reveal className="mx-auto mb-14 max-w-2xl text-center">
-      <span className="text-sm font-semibold uppercase tracking-widest text-fuchsia-400">
+      <span className="text-sm font-semibold uppercase tracking-widest text-red-500">
         {eyebrow}
       </span>
       <h2 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">

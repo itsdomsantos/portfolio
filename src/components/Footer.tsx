@@ -17,7 +17,7 @@ export default function Footer() {
             <span className="text-white/60">.</span>
           </a>
           <p className="mt-1 text-sm text-white/50">
-            © {new Date().getFullYear()} {site.nome}. Todos os direitos reservados.
+            © {new Date().getFullYear()} {site.nome}. All rights reserved.
           </p>
         </div>
 

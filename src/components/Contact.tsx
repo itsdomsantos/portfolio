@@ -5,20 +5,20 @@ import { motion } from "framer-motion";
 import { CheckCircle, Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
 import { site } from "@/data/site";
 
-type Estado = "idle" | "enviando" | "enviado";
+type Status = "idle" | "sending" | "sent";
 
-const orcamentos = ["< 1.000€", "1.000€ – 5.000€", "5.000€ – 15.000€", "15.000€ +"];
+const budgets = ["< $1k", "$1k – $5k", "$5k – $15k", "$15k +"];
 
 export default function Contact() {
-  const [estado, setEstado] = useState<Estado>("idle");
-  const [orcamento, setOrcamento] = useState<string | null>(null);
+  const [status, setStatus] = useState<Status>("idle");
+  const [budget, setBudget] = useState<string | null>(null);
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setEstado("enviando");
-    // Placeholder: sem backend, simulamos o envio.
-    // Liga isto a uma API/serviço (ex.: Formspree, Resend) quando quiseres.
-    setTimeout(() => setEstado("enviado"), 1200);
+    setStatus("sending");
+    // Placeholder: no backend yet, so we simulate the submission.
+    // Wire this to an API/service (e.g. Formspree, Resend) when ready.
+    setTimeout(() => setStatus("sent"), 1200);
   }
 
   return (
@@ -26,19 +26,19 @@ export default function Contact() {
       <div className="mx-auto max-w-5xl">
         <div className="glass overflow-hidden rounded-[2rem]">
           <div className="grid md:grid-cols-[0.85fr_1.15fr]">
-            {/* Coluna informativa */}
-            <div className="relative overflow-hidden bg-gradient-to-br from-fuchsia-600/40 via-purple-600/30 to-indigo-600/40 p-8 sm:p-10">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.25),transparent_55%)]" />
+            {/* Info column */}
+            <div className="relative overflow-hidden bg-gradient-to-br from-red-900/50 via-rose-950/40 to-black/40 p-8 sm:p-10">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.18),transparent_55%)]" />
               <div className="relative">
                 <span className="text-sm font-semibold uppercase tracking-widest text-white/80">
-                  Vamos falar
+                  Let&apos;s talk
                 </span>
                 <h2 className="mt-3 text-3xl font-bold leading-tight sm:text-4xl">
-                  Tens um projeto? <br /> Pede uma proposta.
+                  Got a project? <br /> Request a quote.
                 </h2>
                 <p className="mt-4 text-white/80">
-                  Conta-me a tua ideia e respondo em 24–48h com uma proposta
-                  sem compromisso.
+                  Tell me about your idea and I&apos;ll get back to you within
+                  24–48h with a no-obligation proposal.
                 </p>
 
                 <ul className="mt-8 space-y-4 text-sm">
@@ -66,38 +66,38 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Formulário */}
+            {/* Form */}
             <div className="p-8 sm:p-10">
-              {estado === "enviado" ? (
+              {status === "sent" ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex h-full flex-col items-center justify-center py-12 text-center"
                 >
                   <CheckCircle size={56} className="text-emerald-400" />
-                  <h3 className="mt-5 text-2xl font-bold">Pedido enviado!</h3>
+                  <h3 className="mt-5 text-2xl font-bold">Request sent!</h3>
                   <p className="mt-2 max-w-sm text-white/60">
-                    Obrigado pelo contacto. Respondo o mais breve possível.
+                    Thanks for reaching out. I&apos;ll reply as soon as possible.
                   </p>
                   <button
                     onClick={() => {
-                      setEstado("idle");
-                      setOrcamento(null);
+                      setStatus("idle");
+                      setBudget(null);
                     }}
                     className="mt-6 rounded-xl bg-white/10 px-5 py-2.5 text-sm font-medium hover:bg-white/15"
                   >
-                    Enviar outro pedido
+                    Send another request
                   </button>
                 </motion.div>
               ) : (
                 <form onSubmit={onSubmit} className="space-y-5">
                   <div className="grid gap-5 sm:grid-cols-2">
-                    <Field label="Nome" htmlFor="nome">
+                    <Field label="Name" htmlFor="name">
                       <input
-                        id="nome"
-                        name="nome"
+                        id="name"
+                        name="name"
                         required
-                        placeholder="O teu nome"
+                        placeholder="Your name"
                         className="input"
                       />
                     </Field>
@@ -107,55 +107,55 @@ export default function Contact() {
                         name="email"
                         type="email"
                         required
-                        placeholder="tu@email.com"
+                        placeholder="you@email.com"
                         className="input"
                       />
                     </Field>
                   </div>
 
-                  <Field label="Orçamento estimado" htmlFor="orcamento">
+                  <Field label="Estimated budget" htmlFor="budget">
                     <div className="flex flex-wrap gap-2">
-                      {orcamentos.map((o) => (
+                      {budgets.map((b) => (
                         <button
                           type="button"
-                          key={o}
-                          onClick={() => setOrcamento(o)}
+                          key={b}
+                          onClick={() => setBudget(b)}
                           className={`rounded-xl px-3.5 py-2 text-sm ring-1 transition-colors ${
-                            orcamento === o
-                              ? "bg-fuchsia-500/20 text-white ring-fuchsia-400/60"
+                            budget === b
+                              ? "bg-red-500/20 text-white ring-red-500/60"
                               : "bg-white/5 text-white/70 ring-white/10 hover:text-white"
                           }`}
                         >
-                          {o}
+                          {b}
                         </button>
                       ))}
                     </div>
-                    <input type="hidden" name="orcamento" value={orcamento ?? ""} />
+                    <input type="hidden" name="budget" value={budget ?? ""} />
                   </Field>
 
-                  <Field label="Mensagem" htmlFor="mensagem">
+                  <Field label="Message" htmlFor="message">
                     <textarea
-                      id="mensagem"
-                      name="mensagem"
+                      id="message"
+                      name="message"
                       required
                       rows={4}
-                      placeholder="Descreve o teu projeto, prazos e objetivos…"
+                      placeholder="Describe your project, timeline and goals…"
                       className="input resize-none"
                     />
                   </Field>
 
                   <button
                     type="submit"
-                    disabled={estado === "enviando"}
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-fuchsia-500 to-indigo-500 px-6 py-3.5 font-semibold text-white shadow-lg shadow-fuchsia-500/25 transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70"
+                    disabled={status === "sending"}
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-red-700 to-rose-900 px-6 py-3.5 font-semibold text-white shadow-lg shadow-red-900/40 transition-transform hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70"
                   >
-                    {estado === "enviando" ? (
+                    {status === "sending" ? (
                       <>
-                        <Loader2 size={18} className="animate-spin" /> A enviar…
+                        <Loader2 size={18} className="animate-spin" /> Sending…
                       </>
                     ) : (
                       <>
-                        <Send size={18} /> Enviar pedido
+                        <Send size={18} /> Send request
                       </>
                     )}
                   </button>

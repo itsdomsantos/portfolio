@@ -7,9 +7,9 @@ export default function Skills() {
     <section id="skills" className="relative px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <SectionHeading
-          eyebrow="Competências"
-          title="Skills & Tecnologias"
-          subtitle="As ferramentas com que trabalho no dia a dia."
+          eyebrow="Expertise"
+          title="Skills & technologies"
+          subtitle="The tools I work with day to day."
         />
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -23,7 +23,7 @@ export default function Skills() {
                   {grupo.skills.map((s) => (
                     <span
                       key={s}
-                      className="rounded-xl bg-gradient-to-r from-white/[0.06] to-white/[0.02] px-3.5 py-2 text-sm text-white/80 ring-1 ring-white/10 transition-colors hover:text-white hover:ring-fuchsia-400/40"
+                      className="rounded-xl bg-gradient-to-r from-white/[0.06] to-white/[0.02] px-3.5 py-2 text-sm text-white/80 ring-1 ring-white/10 transition-colors hover:text-white hover:ring-red-500/40"
                     >
                       {s}
                     </span>

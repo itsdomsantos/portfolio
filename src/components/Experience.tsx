@@ -7,8 +7,8 @@ export default function Experience() {
     <section id="experiencia" className="relative px-6 py-28">
       <div className="mx-auto max-w-3xl">
         <SectionHeading
-          eyebrow="Percurso"
-          title="Experiência profissional"
+          eyebrow="Career"
+          title="Work experience"
         />
 
         <div className="relative border-l border-white/10 pl-8">
@@ -17,13 +17,13 @@ export default function Experience() {
               <div className="relative pb-12 last:pb-0">
                 {/* Ponto na timeline */}
                 <span className="absolute -left-[41px] top-1.5 flex h-4 w-4 items-center justify-center">
-                  <span className="h-4 w-4 rounded-full bg-gradient-to-r from-fuchsia-500 to-indigo-500 ring-4 ring-[#05010f]" />
+                  <span className="h-4 w-4 rounded-full bg-gradient-to-r from-red-600 to-rose-900 ring-4 ring-[#0a0405]" />
                 </span>
 
                 <div className="glass rounded-2xl p-6">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <h3 className="text-lg font-bold">{exp.cargo}</h3>
-                    <span className="text-sm font-medium text-fuchsia-400">
+                    <span className="text-sm font-medium text-red-500">
                       {exp.periodo}
                     </span>
                   </div>

@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
-import { Github } from "./icons";
 import SectionHeading from "./SectionHeading";
 import { projetos } from "@/data/site";
 
@@ -12,8 +11,8 @@ export default function Projects() {
       <div className="mx-auto max-w-6xl">
         <SectionHeading
           eyebrow="Portfolio"
-          title="Projetos em destaque"
-          subtitle="Uma seleção de trabalhos recentes. Substitui pelos teus projetos reais."
+          title="Featured projects"
+          subtitle="A selection of recent work. Replace these with your real projects."
         />
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -26,7 +25,7 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: (i % 3) * 0.1 }}
               className="glass group flex flex-col overflow-hidden rounded-3xl transition-transform duration-300 hover:-translate-y-2"
             >
-              {/* Cabeçalho em gradiente */}
+              {/* Gradient header */}
               <div
                 className={`relative h-40 bg-gradient-to-br ${p.cor} overflow-hidden`}
               >
@@ -57,28 +56,18 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="mt-5 flex gap-3">
-                  {p.linkDemo && (
+                {p.linkDemo && (
+                  <div className="mt-5 flex gap-3">
                     <a
                       href={p.linkDemo}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition-colors hover:text-fuchsia-400"
+                      className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition-colors hover:text-red-500"
                     >
-                      <ExternalLink size={16} /> Demo
+                      <ExternalLink size={16} /> Live demo
                     </a>
-                  )}
-                  {p.linkRepo && (
-                    <a
-                      href={p.linkRepo}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition-colors hover:text-fuchsia-400"
-                    >
-                      <Github size={16} /> Código
-                    </a>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
             </motion.article>
           ))}

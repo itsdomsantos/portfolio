@@ -5,11 +5,11 @@ import { Menu, X } from "lucide-react";
 import { site } from "@/data/site";
 
 const links = [
-  { href: "#sobre", label: "Sobre" },
-  { href: "#projetos", label: "Projetos" },
+  { href: "#sobre", label: "About" },
+  { href: "#projetos", label: "Projects" },
   { href: "#skills", label: "Skills" },
-  { href: "#experiencia", label: "Experiência" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "#experiencia", label: "Experience" },
+  { href: "#contacto", label: "Contact" },
 ];
 
 export default function Navbar() {
@@ -56,9 +56,9 @@ export default function Navbar() {
 
         <a
           href="#contacto"
-          className="hidden rounded-lg bg-gradient-to-r from-fuchsia-500 to-indigo-500 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-fuchsia-500/25 transition-transform hover:scale-105 md:inline-block"
+          className="hidden rounded-lg bg-gradient-to-r from-red-700 to-rose-900 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-red-900/40 transition-transform hover:scale-105 md:inline-block"
         >
-          Pedir proposta
+          Request a quote
         </a>
 
         {/* Mobile toggle */}
@@ -90,9 +90,9 @@ export default function Navbar() {
               <a
                 href="#contacto"
                 onClick={() => setOpen(false)}
-                className="mt-1 block rounded-lg bg-gradient-to-r from-fuchsia-500 to-indigo-500 px-3 py-2.5 text-center font-semibold text-white"
+                className="mt-1 block rounded-lg bg-gradient-to-r from-red-700 to-rose-900 px-3 py-2.5 text-center font-semibold text-white"
               >
-                Pedir proposta
+                Request a quote
               </a>
             </li>
           </ul>

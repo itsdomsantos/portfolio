@@ -29,7 +29,7 @@ export default function Hero() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
             </span>
-            Disponível para novos projetos
+            Available for new projects
           </motion.div>
         )}
 
@@ -39,7 +39,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-balance text-5xl font-extrabold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl"
         >
-          Olá, sou <span className="text-gradient">{site.nome}</span>
+          Hi, I&apos;m <span className="text-gradient">{site.nome}</span>
         </motion.h1>
 
         <motion.p
@@ -70,9 +70,9 @@ export default function Hero() {
         >
           <a
             href="#contacto"
-            className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-fuchsia-500 to-indigo-500 px-6 py-3.5 font-semibold text-white shadow-xl shadow-fuchsia-500/30 transition-transform hover:scale-105"
+            className="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-red-700 to-rose-900 px-6 py-3.5 font-semibold text-white shadow-xl shadow-red-900/40 transition-transform hover:scale-105"
           >
-            Trabalha comigo
+            Work with me
             <ArrowRight
               size={18}
               className="transition-transform group-hover:translate-x-1"
@@ -82,7 +82,7 @@ export default function Hero() {
             href="#projetos"
             className="glass inline-flex items-center gap-2 rounded-xl px-6 py-3.5 font-semibold text-white/90 transition-colors hover:bg-white/10"
           >
-            Ver projetos
+            View projects
           </a>
         </motion.div>
 
@@ -109,7 +109,7 @@ export default function Hero() {
 
       <a
         href="#sobre"
-        aria-label="Ver mais"
+        aria-label="Scroll down"
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 transition-colors hover:text-white/80"
       >
         <ArrowDown size={24} className="animate-bounce" />

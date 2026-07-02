@@ -1,34 +1,34 @@
 // ============================================================
-//  CONTEÚDO DO PORTFOLIO — edita aqui os teus dados reais.
-//  Tudo o que aparece no site vem deste ficheiro.
+//  PORTFOLIO CONTENT — edit your real data here.
+//  Everything shown on the site comes from this file.
 // ============================================================
 
 export const site = {
-  nome: "O Teu Nome",
-  profissao: "Desenvolvedor Full-Stack & Designer",
+  nome: "Your Name",
+  profissao: "Full-Stack Developer & Designer",
   tagline:
-    "Crio experiências digitais modernas, rápidas e memoráveis — da ideia ao produto final.",
-  localizacao: "Lisboa, Portugal",
-  email: "ola@teudominio.com",
+    "I craft modern, fast and memorable digital experiences — from idea to finished product.",
+  localizacao: "Lisbon, Portugal",
+  email: "hello@yourdomain.com",
   telefone: "+351 900 000 000",
-  disponivel: true, // mostra o badge "Disponível para projetos"
+  disponivel: true, // shows the "Available for projects" badge
   redes: {
-    github: "https://github.com/teu-username",
-    linkedin: "https://linkedin.com/in/teu-username",
-    twitter: "https://twitter.com/teu-username",
+    github: "https://github.com/your-username",
+    linkedin: "https://linkedin.com/in/your-username",
+    twitter: "https://twitter.com/your-username",
   },
 };
 
 export const sobre = {
   paragrafos: [
-    "Olá! Sou um profissional apaixonado por transformar problemas complexos em soluções simples e elegantes. Trabalho na interseção entre design e engenharia, sempre com foco na experiência do utilizador.",
-    "Com vários anos de experiência, já ajudei startups e empresas a lançar produtos digitais que combinam performance técnica com um visual cuidado. Aqui podes descrever a tua história, valores e o que te move.",
+    "Hi! I'm a professional passionate about turning complex problems into simple, elegant solutions. I work at the intersection of design and engineering, always focused on the user experience.",
+    "With several years of experience, I've helped startups and companies ship digital products that combine technical performance with polished visuals. Use this space to tell your story, values and what drives you.",
   ],
   destaques: [
-    { valor: "5+", label: "Anos de experiência" },
-    { valor: "40+", label: "Projetos entregues" },
-    { valor: "20+", label: "Clientes satisfeitos" },
-    { valor: "∞", label: "Cafés bebidos" },
+    { valor: "5+", label: "Years of experience" },
+    { valor: "40+", label: "Projects delivered" },
+    { valor: "20+", label: "Happy clients" },
+    { valor: "∞", label: "Cups of coffee" },
   ],
 };
 
@@ -36,65 +36,58 @@ export type Projeto = {
   titulo: string;
   descricao: string;
   tags: string[];
-  cor: string; // gradiente Tailwind para o cabeçalho do card
+  cor: string; // Tailwind gradient for the card header
   linkDemo?: string;
-  linkRepo?: string;
 };
 
 export const projetos: Projeto[] = [
   {
-    titulo: "Plataforma SaaS",
+    titulo: "SaaS Platform",
     descricao:
-      "Dashboard analítico em tempo real com autenticação, faturação e gráficos interativos. Placeholder — substitui pela descrição do teu projeto real.",
+      "Real-time analytics dashboard with authentication, billing and interactive charts. Placeholder — swap for your real project description.",
     tags: ["Next.js", "TypeScript", "PostgreSQL", "Stripe"],
-    cor: "from-fuchsia-500 to-purple-600",
+    cor: "from-red-600 to-rose-900",
     linkDemo: "#",
-    linkRepo: "#",
   },
   {
-    titulo: "App de E-commerce",
+    titulo: "E-commerce App",
     descricao:
-      "Loja online completa com carrinho, pagamentos e área de administração. Focada em performance e conversão.",
+      "Complete online store with cart, payments and an admin area. Built for performance and conversion.",
     tags: ["React", "Node.js", "Tailwind", "Redis"],
-    cor: "from-cyan-500 to-blue-600",
+    cor: "from-rose-700 to-red-950",
     linkDemo: "#",
-    linkRepo: "#",
   },
   {
-    titulo: "Website Institucional",
+    titulo: "Corporate Website",
     descricao:
-      "Site de apresentação com CMS headless, animações fluidas e otimização SEO de topo. 100/100 no Lighthouse.",
+      "Marketing site with a headless CMS, smooth animations and top-tier SEO optimization. 100/100 on Lighthouse.",
     tags: ["Astro", "Sanity", "Framer Motion"],
-    cor: "from-amber-500 to-orange-600",
+    cor: "from-[#b91c1c] to-[#450a0a]",
     linkDemo: "#",
-    linkRepo: "#",
   },
   {
-    titulo: "App Mobile",
+    titulo: "Mobile App",
     descricao:
-      "Aplicação multiplataforma para gestão de tarefas com sincronização offline e notificações push.",
+      "Cross-platform task management app with offline sync and push notifications.",
     tags: ["React Native", "Expo", "Supabase"],
-    cor: "from-emerald-500 to-teal-600",
+    cor: "from-red-500 to-rose-800",
     linkDemo: "#",
-    linkRepo: "#",
   },
   {
     titulo: "Design System",
     descricao:
-      "Biblioteca de componentes reutilizáveis e documentados, adotada por várias equipas de produto.",
+      "A library of reusable, documented components adopted by several product teams.",
     tags: ["Storybook", "Radix UI", "TypeScript"],
-    cor: "from-rose-500 to-pink-600",
+    cor: "from-rose-800 to-[#2b0a0a]",
     linkDemo: "#",
-    linkRepo: "#",
   },
   {
-    titulo: "Ferramenta de IA",
+    titulo: "AI Tool",
     descricao:
-      "Assistente que gera conteúdo com modelos de linguagem, com streaming de respostas em tempo real.",
+      "An assistant that generates content with language models, streaming responses in real time.",
     tags: ["Next.js", "OpenAI", "Vercel AI SDK"],
-    cor: "from-violet-500 to-indigo-600",
+    cor: "from-[#dc2626] to-[#4c0519]",
     linkDemo: "#",
-    linkRepo: "#",
   },
 ];
 
@@ -113,7 +106,7 @@ export const skills: GrupoSkills[] = [
     skills: ["Node.js", "Python", "PostgreSQL", "GraphQL", "Redis", "REST APIs"],
   },
   {
-    categoria: "Ferramentas & Cloud",
+    categoria: "Tools & Cloud",
     skills: ["Git", "Docker", "AWS", "Vercel", "Figma", "CI/CD"],
   },
 ];
@@ -127,24 +120,24 @@ export type Experiencia = {
 
 export const experiencias: Experiencia[] = [
   {
-    cargo: "Desenvolvedor Sénior",
-    empresa: "Empresa Placeholder Lda.",
-    periodo: "2023 — Presente",
+    cargo: "Senior Developer",
+    empresa: "Placeholder Company Ltd.",
+    periodo: "2023 — Present",
     descricao:
-      "Liderança técnica no desenvolvimento de produtos web, mentoria de equipa e definição da arquitetura de sistemas escaláveis.",
+      "Technical lead on web product development, team mentoring and defining the architecture of scalable systems.",
   },
   {
-    cargo: "Desenvolvedor Full-Stack",
-    empresa: "Startup Exemplo",
+    cargo: "Full-Stack Developer",
+    empresa: "Example Startup",
     periodo: "2021 — 2023",
     descricao:
-      "Desenvolvimento de funcionalidades end-to-end, da base de dados à interface, num ambiente ágil e acelerado.",
+      "End-to-end feature development, from database to interface, in a fast-paced agile environment.",
   },
   {
-    cargo: "Desenvolvedor Frontend",
-    empresa: "Agência Digital",
+    cargo: "Frontend Developer",
+    empresa: "Digital Agency",
     periodo: "2019 — 2021",
     descricao:
-      "Construção de websites e interfaces para clientes de vários setores, com foco em responsividade e acessibilidade.",
+      "Built websites and interfaces for clients across many sectors, with a focus on responsiveness and accessibility.",
   },
 ];
