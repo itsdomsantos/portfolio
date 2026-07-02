@@ -55,7 +55,7 @@ export const projetos: Projeto[] = [
     destaque: true,
     privado: true,
     // 👇 Drop your file in public/projects/ and uncomment ONE of these:
-    // imagem: "/projects/operager.png",
+    imagem: "/projects/operager.png",
     // video: "/projects/operager-demo.mp4",
   },
   {
