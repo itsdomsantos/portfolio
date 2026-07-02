@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { Github, Lock } from "./icons";
 import SectionHeading from "./SectionHeading";
 import { projetos, type Projeto } from "@/data/site";
@@ -44,11 +45,7 @@ function Card({ p, index }: { p: Projeto; index: number }) {
       }`}
     >
       {/* Media area — screenshot / video / gradient fallback */}
-      <div
-        className={`relative overflow-hidden bg-gradient-to-br ${p.cor} ${
-          p.destaque ? "h-64 sm:h-80" : "h-40"
-        }`}
-      >
+      <MediaWrapper href={p.paginaHref} destaque={p.destaque} cor={p.cor}>
         {p.video ? (
           <video
             className="h-full w-full object-cover"
@@ -78,10 +75,18 @@ function Card({ p, index }: { p: Projeto; index: number }) {
             <Lock size={12} /> Private
           </span>
         )}
-      </div>
+      </MediaWrapper>
 
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="text-xl font-bold">{p.titulo}</h3>
+        <h3 className="text-xl font-bold">
+          {p.paginaHref ? (
+            <Link href={p.paginaHref} className="transition-colors hover:text-red-400">
+              {p.titulo}
+            </Link>
+          ) : (
+            p.titulo
+          )}
+        </h3>
         <p className="mt-2 flex-1 text-sm leading-relaxed text-white/60">
           {p.descricao}
         </p>
@@ -98,6 +103,18 @@ function Card({ p, index }: { p: Projeto; index: number }) {
         </div>
 
         <div className="mt-5 flex items-center gap-4">
+          {p.paginaHref && (
+            <Link
+              href={p.paginaHref}
+              className="group/link inline-flex items-center gap-1.5 text-sm font-semibold text-red-400 transition-colors hover:text-red-300"
+            >
+              View project
+              <ArrowRight
+                size={16}
+                className="transition-transform group-hover/link:translate-x-1"
+              />
+            </Link>
+          )}
           {p.linkDemo && (
             <a
               href={p.linkDemo}
@@ -118,7 +135,7 @@ function Card({ p, index }: { p: Projeto; index: number }) {
               <Github size={16} /> View on GitHub
             </a>
           )}
-          {p.privado && !p.linkDemo && !p.linkRepo && (
+          {p.privado && !p.paginaHref && !p.linkDemo && !p.linkRepo && (
             <span className="inline-flex items-center gap-1.5 text-sm text-white/45">
               <Lock size={14} /> Private client project
             </span>
@@ -126,5 +143,28 @@ function Card({ p, index }: { p: Projeto; index: number }) {
         </div>
       </div>
     </motion.article>
+  );
+}
+
+function MediaWrapper({
+  href,
+  destaque,
+  cor,
+  children,
+}: {
+  href?: string;
+  destaque?: boolean;
+  cor: string;
+  children: React.ReactNode;
+}) {
+  const className = `relative block overflow-hidden bg-gradient-to-br ${cor} ${
+    destaque ? "h-64 sm:h-80" : "h-40"
+  }`;
+  return href ? (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  ) : (
+    <div className={className}>{children}</div>
   );
 }

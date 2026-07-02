@@ -41,20 +41,22 @@ export type Projeto = {
   privado?: boolean; // private/client project — shows a "Private" badge, no code link
   imagem?: string; // screenshot, e.g. "/projects/operager.png" (put file in public/projects/)
   video?: string; // demo video, e.g. "/projects/operager-demo.mp4"
+  paginaHref?: string; // internal case-study page, e.g. "/projects/operager"
   linkDemo?: string;
   linkRepo?: string;
 };
 
 export const projetos: Projeto[] = [
   {
-    titulo: "Workshop Inventory System",
+    titulo: "Operager — Workshop Inventory System",
     descricao:
       "A full-stack fleet & workshop inventory platform for construction companies: real-time stock tracking, movement logging, role-based access, employee time tracking and Excel export — all powered by a secure REST API with JWT authentication.",
     tags: ["React", "Node.js", "Express", "PostgreSQL", "REST API", "JWT"],
     cor: "from-red-600 to-rose-950",
     destaque: true,
     privado: true,
-    // 👇 Drop your file in public/projects/ and uncomment ONE of these:
+    paginaHref: "/projects/operager",
+    // 👇 Card thumbnail — drop a file in public/projects/ and uncomment ONE:
     imagem: "/projects/operager.png",
     // video: "/projects/operager-demo.mp4",
   },
