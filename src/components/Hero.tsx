@@ -2,13 +2,12 @@
 
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowRight, MapPin } from "lucide-react";
-import { Github, Linkedin, Twitter } from "./icons";
+import { Github, Linkedin } from "./icons";
 import { site } from "@/data/site";
 
 const socials = [
   { href: site.redes.github, Icon: Github, label: "GitHub" },
   { href: site.redes.linkedin, Icon: Linkedin, label: "LinkedIn" },
-  { href: site.redes.twitter, Icon: Twitter, label: "Twitter" },
 ];
 
 export default function Hero() {

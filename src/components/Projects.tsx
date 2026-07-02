@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
+import { Github } from "./icons";
 import SectionHeading from "./SectionHeading";
 import { projetos } from "@/data/site";
 
@@ -56,16 +57,28 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {p.linkDemo && (
-                  <div className="mt-5 flex gap-3">
-                    <a
-                      href={p.linkDemo}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition-colors hover:text-red-500"
-                    >
-                      <ExternalLink size={16} /> Live demo
-                    </a>
+                {(p.linkDemo || p.linkRepo) && (
+                  <div className="mt-5 flex gap-4">
+                    {p.linkDemo && (
+                      <a
+                        href={p.linkDemo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition-colors hover:text-red-500"
+                      >
+                        <ExternalLink size={16} /> Live demo
+                      </a>
+                    )}
+                    {p.linkRepo && (
+                      <a
+                        href={p.linkRepo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition-colors hover:text-red-500"
+                      >
+                        <Github size={16} /> View on GitHub
+                      </a>
+                    )}
                   </div>
                 )}
               </div>

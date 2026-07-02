@@ -50,12 +50,14 @@ export default function Contact() {
                       {site.email}
                     </a>
                   </li>
-                  <li className="flex items-center gap-3">
-                    <span className="glass rounded-xl p-2.5">
-                      <Phone size={18} />
-                    </span>
-                    {site.telefone}
-                  </li>
+                  {site.telefone && (
+                    <li className="flex items-center gap-3">
+                      <span className="glass rounded-xl p-2.5">
+                        <Phone size={18} />
+                      </span>
+                      {site.telefone}
+                    </li>
+                  )}
                   <li className="flex items-center gap-3">
                     <span className="glass rounded-xl p-2.5">
                       <MapPin size={18} />
