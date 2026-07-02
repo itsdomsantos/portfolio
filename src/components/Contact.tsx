@@ -5,20 +5,39 @@ import { motion } from "framer-motion";
 import { CheckCircle, Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
 import { site } from "@/data/site";
 
-type Status = "idle" | "sending" | "sent";
+type Status = "idle" | "sending" | "sent" | "error";
 
 const budgets = ["< $1k", "$1k – $5k", "$5k – $15k", "$15k +"];
 
 export default function Contact() {
   const [status, setStatus] = useState<Status>("idle");
   const [budget, setBudget] = useState<string | null>(null);
+  const [erro, setErro] = useState<string>("");
 
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
-    // Placeholder: no backend yet, so we simulate the submission.
-    // Wire this to an API/service (e.g. Formspree, Resend) when ready.
-    setTimeout(() => setStatus("sent"), 1200);
+    setErro("");
+
+    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || "Something went wrong. Please try again.");
+      }
+
+      setStatus("sent");
+    } catch (err) {
+      setErro(err instanceof Error ? err.message : "Something went wrong.");
+      setStatus("error");
+    }
   }
 
   return (
@@ -145,6 +164,12 @@ export default function Contact() {
                       className="input resize-none"
                     />
                   </Field>
+
+                  {status === "error" && erro && (
+                    <p className="rounded-xl bg-red-500/10 px-4 py-3 text-sm text-red-300 ring-1 ring-red-500/30">
+                      {erro}
+                    </p>
+                  )}
 
                   <button
                     type="submit"

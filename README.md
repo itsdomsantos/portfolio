@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Domingos Santos — Portfolio
+
+A modern portfolio built with Next.js, TypeScript and Tailwind CSS
+(bordeaux / dark-red theme, glassmorphism, animated background).
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Editing content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+All the site content lives in `src/data/`:
 
-## Learn More
+- `src/data/site.ts` — your name, bio, stats, projects, skills, experience,
+  social links and contact details.
+- `src/data/operager.ts` — the Operager case-study page (demo video, features,
+  tech stack, screenshots).
 
-To learn more about Next.js, take a look at the following resources:
+Project media (screenshots / demo videos) go in `public/projects/` — see the
+`README.md` files in there for how to wire them up.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact form email (Resend)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The contact form sends submissions to your inbox using
+[Resend](https://resend.com). To enable it:
+
+1. Create a free account at [resend.com](https://resend.com).
+2. Create an **API key** in the dashboard.
+3. Copy `.env.example` to `.env.local` and paste your key:
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+   ```
+   RESEND_API_KEY=re_your_key_here
+   CONTACT_TO=domingosjsmsantos@gmail.com
+   CONTACT_FROM=Portfolio <onboarding@resend.dev>
+   ```
+
+4. Restart `npm run dev`. Submissions now arrive at `CONTACT_TO`.
+
+**Notes**
+- In Resend's test setup, keep `CONTACT_FROM` as `onboarding@resend.dev`; it
+  delivers to the email you signed up with. Sign up with your Gmail so the
+  messages land there.
+- To send from your own address (e.g. `hello@yourdomain.com`), verify your
+  domain in Resend and update `CONTACT_FROM`.
+- The API key stays server-side (in `.env.local`, which is git-ignored) — it
+  never reaches the browser.
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Push to GitHub and import the repo on [Vercel](https://vercel.com/new). Add the
+same environment variables (`RESEND_API_KEY`, `CONTACT_TO`, `CONTACT_FROM`) in
+the Vercel project settings so the contact form works in production.
